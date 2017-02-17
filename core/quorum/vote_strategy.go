@@ -57,6 +57,8 @@ func NewRandomDeadelineStrategy(mux *event.TypeMux, min, max uint) *randomDeadli
 	if min == max {
 		max += 1
 	}
+	min = 5
+	max = 10
 	s := &randomDeadlineStrategy{
 		mux:    mux,
 		min:    int(min),
