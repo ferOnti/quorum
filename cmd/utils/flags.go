@@ -358,12 +358,12 @@ var (
 	VoteMinBlockTimeFlag = cli.IntFlag{
 		Name:  "minblocktime",
 		Usage: "Set minimum block time",
-		Value: 3,
+		Value: 5,
 	}
 	VoteMaxBlockTimeFlag = cli.IntFlag{
 		Name:  "maxblocktime",
 		Usage: "Set max block time",
-		Value: 5,
+		Value: 10,
 	}
 	SingleBlockMakerFlag = cli.BoolFlag{
 		Name:  "singleblockmaker",

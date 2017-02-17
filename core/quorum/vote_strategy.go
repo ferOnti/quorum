@@ -63,6 +63,7 @@ func NewRandomDeadelineStrategy(mux *event.TypeMux, min, max uint) *randomDeadli
 		max:    int(max),
 		active: true,
 	}
+	glog.Infof("NewRandomDeadelineStrategy min=%d, max=%d", s.min, s.max)
 	return s
 }
 
