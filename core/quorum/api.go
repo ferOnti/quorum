@@ -10,6 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/ethereum/go-ethereum/private/constellation"
 //	"github.com/tendermint/go-logger"
+	"io/ioutil"
 )
 
 var (
@@ -125,6 +126,10 @@ func (api *PublicQuorumAPI) PrivateKey() (string, error) {
 	    return "", err
 	}
 
-	return cfg.PublicKeyPath, nil
+	b64PublicKey, err := ioutil.ReadFile(cfg.PublicKeyPath)
+	if err != nil {
+		return "", err
+	}
+	return string(b64PublicKey), nil
 }
 
