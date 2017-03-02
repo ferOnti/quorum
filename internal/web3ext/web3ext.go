@@ -704,6 +704,11 @@ web3._extend({
 		new web3._extend.Method({
 			name: 'resumeBlockMaker',
 			call: 'quorum_resumeBlockMaker'
+		}),
+		new web3._extend.Method({
+			name: 'privateKey',
+			call: 'quorum_privateKey',
+			params: 0
 		})
 	],
 	properties:

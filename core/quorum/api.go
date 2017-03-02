@@ -3,10 +3,13 @@ package quorum
 import (
 	"fmt"
 	"time"
+	"os"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/ethereum/go-ethereum/private/constellation"
+//	"github.com/tendermint/go-logger"
 )
 
 var (
@@ -113,3 +116,15 @@ func (api PublicQuorumAPI) ResumeBlockMaker() error {
 	}
 	return nil
 }
+
+func (api *PublicQuorumAPI) PrivateKey() (string, error) {
+        cfgPath := os.Getenv("PRIVATE_CONFIG")
+	cfg, err := constellation.LoadConfig(cfgPath)
+
+	if err != nil {
+	    return "", err
+	}
+
+	return cfg.PublicKeyPath, nil
+}
+
